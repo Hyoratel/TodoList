@@ -22,13 +22,14 @@
 export default {
   name: 'InputTodo',
   // emits는 최상위 속성으로 작성합니다.
-  emits: ['add-todo'],
+
   // data() 함수는 순수하게 데이터 객체만 반환해야 합니다.
   data() {
     return {
       todo: '',
     };
   },
+  emits: ['add-todo'],
   // methods도 최상위 속성입니다.
   methods: {
     addTodoHandler() {

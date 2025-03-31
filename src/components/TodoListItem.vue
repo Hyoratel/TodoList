@@ -2,7 +2,7 @@
   <li
     class="List-group-item"
     :class="{
-      'list-group-item-success': WebTransportBidirectionalStream.completed,
+      'list-group-item-success': todoItem.completed,
     }"
     @click="$emit('toggle-completed', todoItem.id)"
   >

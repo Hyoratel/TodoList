@@ -8,7 +8,7 @@
         <InputTodo @add-todo="addTodo" />
         <!-- 바인딩을 통해 부모 컴포넌트 데이터를 자식에게 전달 -->
         <TodoList
-          :todoList="todoList"
+          :todoList="todos"
           @delete-todo="deleteTodo"
           @toggle-completed="toggleCompleted"
         />
@@ -28,7 +28,7 @@ export default {
   components: { InputTodo, TodoList },
   data() {
     return {
-      todoList: [
+      todos: [
         { id: ts, todo: '자전거 타기', completed: false },
         { id: ts + 1, todo: '딸과 공원 산책', completed: true },
         { id: ts + 2, todo: '일요일 애견 카페', completed: false },
