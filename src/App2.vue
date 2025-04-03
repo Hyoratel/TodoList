@@ -5,27 +5,27 @@
     </div>
     <div class="card card -default card -borderless">
       <div class="card -body">
-        <InputTodo @add-todo="addTodo" />
-        <!-- 바인딩을 통해 부모 컴포넌트 데이터를 자식에게 전달 -->
-        <TodoList
-          :todoList="todoList"
-          @delete-todo="deleteTodo"
-          @toggle-completed="toggleCompleted"
-        />
+        <InputTodo />
+        <TodoList :todoList="todoList" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TodoList from './components/TodoList.vue';
-import InputTodo from './components/InputTodo.vue';
+import TodoList from './components/TodoList2.vue';
+import InputTodo from './components/InputTodo2.vue';
 
 let ts = new Date().getTime();
 
 export default {
   name: 'App',
   components: { InputTodo, TodoList },
+  created() {
+    this.emitter.on('add-todo', this.addTodo);
+    this.emitter.on('delete-todo', this.deleteTodo);
+    this.emitter.on('toggle-completed', this.toggleCompleted);
+  },
   data() {
     return {
       todoList: [
